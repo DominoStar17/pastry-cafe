@@ -1,12 +1,54 @@
-$primary-color: #ffcc00;
-$secondary-color: #d35400;
+// Color palette
+$color-pink: #F8E1E7;
+$color-green: #DFFFE0;
+$color-copper: #B87333;
+$color-cream: #FFF9E6;
+$color-white: #FFFFFF;
 
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f8f9fa;
+// Fonts
+$font-heading: 'Playfair Display', serif;
+$font-body: 'Poppins', sans-serif;
+$font-accent: 'Dancing Script', cursive;
+
+// Spacing
+$gutter: 1rem;
+$max-width: 1200px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
-    color: $primary-color;
-    text-align: center;
+body {
+    font-family: $font-body;
+    background: $color-cream;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: $max-width;
+    margin: 0 auto;
+    padding: 0 $gutter;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $font-heading;
+}
+
+.accent {
+    font-family: $font-accent;
+    color: $color-copper;
+}
+
+button {
+    font-family: $font-body;
+    border-radius: 4px;
+    cursor: pointer;
 }

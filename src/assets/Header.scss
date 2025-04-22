@@ -1,0 +1,96 @@
+@import "@/assets/styles.scss";
+
+.app-header {
+    background: rgba($color-white, 0.95);
+    padding-top: $gutter;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    .header-bar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: $gutter 0;
+
+        @media (min-width: 768px) {
+            justify-content: space-between;
+            padding: $gutter 0;
+        }
+
+        .hamburger {
+            position: absolute;
+            left: $gutter;
+            font-size: 1.5rem;
+
+            @media (min-width: 768px) {
+                display: none;
+            }
+        }
+
+        .logo {
+            width: 120px;
+
+            @media (min-width: 768px) {
+                width: 180px;
+            }
+        }
+
+        .header-nav {
+            display: none;
+
+            @media (min-width: 768px) {
+                display: flex;
+                align-items: center;
+                gap: $gutter * 2;
+            }
+
+            .nav-link {
+                color: #333;
+                font-weight: 600;
+
+                &:hover,
+                &.router-link-active {
+                    color: $color-copper;
+                }
+            }
+
+            .vr {
+                background-color: $color-copper;
+                width: 1px;
+                height: 1.5rem;
+            }
+
+            .btn-contact {
+                background: $color-copper;
+                color: $color-white;
+                padding: 0.5rem 1rem;
+                border-radius: 999px;
+                font-weight: 600;
+
+                &:hover {
+                    background: darken($color-copper, 5%);
+                }
+            }
+        }
+    }
+
+    .offcanvas-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: $gutter;
+
+        .offcanvas-logo {
+            max-width: 120px;
+            height: auto;
+        }
+    }
+
+    .sidebar-divider {
+        border: none;
+        border-top: 1px solid $color-copper;
+        margin: $gutter 0;
+    }
+}

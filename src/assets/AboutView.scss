@@ -1,0 +1,13 @@
+@import "@/assets/styles.scss";
+
+.about {
+    h2 {
+        font-family: $font-heading;
+        margin-top: 2rem;
+        margin-bottom: $gutter / 2;
+    }
+
+    .timeline strong {
+        color: $color-copper;
+    }
+}
