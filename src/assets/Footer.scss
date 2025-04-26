@@ -1,34 +1,34 @@
 @import "@/assets/styles.scss";
 
 .app-footer {
-    background: $color-cream;
-    color: #333;
+  background: $color-cream;
+  color: #333;
 
-    h5 {
-        font-family: $font-heading;
-        margin-bottom: 0.5rem;
+  h5 {
+    font-family: $font-heading;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links a {
+    color: #555;
+
+    &:hover {
+      color: $color-copper;
+      text-decoration: none;
     }
+  }
 
-    .footer-links a {
-        color: #555;
+  .footer-socials a {
+    color: #555;
+    font-size: 1.25rem;
 
-        &:hover {
-            color: $color-copper;
-            text-decoration: none;
-        }
+    &:hover {
+      color: $color-copper;
     }
+  }
 
-    .footer-socials a {
-        color: #555;
-        font-size: 1.25rem;
-
-        &:hover {
-            color: $color-copper;
-        }
-    }
-
-    address {
-        font-style: normal;
-        line-height: 1.5;
-    }
+  address {
+    font-style: normal;
+    line-height: 1.5;
+  }
 }
