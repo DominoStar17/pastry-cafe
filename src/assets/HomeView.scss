@@ -1,4 +1,5 @@
 @import "@/assets/styles.scss";
+// Import global styles, such as colors, fonts, and spacing
 
 .home {
     .bg-pink {
@@ -13,6 +14,38 @@
 
         &:hover {
             background: darken($color-copper, 5%);
+        }
+    }
+}
+
+// Mobile-specific styles using media queries
+@media only screen and (max-width: 768px) {
+    .home {
+        // Adjust header text size
+        h1 {
+            font-size: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        // Adjust margins and paddings for mobile
+        .container {
+            padding: 0 $gutter;
+        }
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .home {
+        // Further adjust for very small screens
+        h1 {
+            font-size: 1.25rem;
+        }
+
+        h2 {
+            font-size: 1rem;
         }
     }
 }
