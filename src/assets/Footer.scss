@@ -1,0 +1,123 @@
+@import "@/assets/styles.scss";
+
+.app-footer {
+    background: darken($color-cream, 4%);
+    color: #333;
+    font-size: 0.95rem;
+    padding-top: 2rem;
+    padding-bottom: 0; // so we control it separately later
+
+    .footer-main {
+        padding-bottom: 2rem; // space above the copyright line
+    }
+
+    h5 {
+        font-family: $font-heading;
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        position: relative;
+        padding-left: 1rem;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 70%;
+            background-color: $color-copper;
+            border-radius: 2px;
+        }
+    }
+
+    // Hide vertical line (h5::before) on mobile
+    @media (max-width: 767px) {
+        h5::before {
+            display: none;
+        }
+    }
+
+    .footer-logo img {
+        max-width: 150px;
+    }
+
+    .footer-links {
+        a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            margin-bottom: 0.5rem;
+
+            &:hover {
+                color: $color-copper;
+            }
+        }
+    }
+
+    .footer-socials {
+        a {
+            color: #555;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: $color-copper;
+            }
+        }
+    }
+
+    address {
+        font-style: normal;
+        line-height: 1.5;
+        margin-top: 0.5rem;
+        font-size: 0.95rem;
+    }
+
+    .row>div {
+        margin-bottom: 1.5rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .row>div {
+            margin-bottom: 0;
+        }
+    }
+
+    .footer-bottom {
+        background: #f9f5f2;
+        padding: 1rem 0;
+        text-align: center;
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 2rem;
+    }
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 1.5rem;
+            background-color: $color-copper;
+            color: $color-white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.5rem;
+            text-align: center;
+            line-height: 45px;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 9999;
+    
+            &:hover {
+                background-color: darken($color-copper, 8%);
+                transform: translateY(-4px);
+            }
+        }
+}

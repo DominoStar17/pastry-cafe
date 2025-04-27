@@ -1,0 +1,126 @@
+@import "@/assets/styles.scss";
+
+.app-header {
+    padding: 0.75rem 0;
+
+    .logo-sm {
+        width: 100px;
+        transition: all 0.3s ease;
+    }
+
+    .logo-lg {
+        width: 140px;
+    }
+
+    .hamburger-btn {
+        border: none;
+        background: none;
+        padding: 0.5rem;
+    }
+
+    .hamburger-icon {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: black;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -8px;
+        }
+
+        &::after {
+            top: 8px;
+        }
+    }
+
+    .btn-contact {
+        background: $color-copper;
+        color: $color-white;
+        border-radius: 999px;
+        padding: 0.4rem 1rem;
+        font-weight: 600;
+        font-size: 1rem;
+
+        &:hover {
+            background: darken($color-copper, 5%);
+        }
+    }
+
+    .sidebar-divider {
+        border: none;
+        border-top: 1px solid $color-copper;
+        margin: $gutter 0;
+    }
+
+    // Desktop Nav Links
+    .link-style {
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: #333;
+        text-decoration: none;
+        transition: color 0.3s ease;
+
+        &:hover,
+        &.router-link-exact-active {
+            color: $color-copper;
+            text-decoration: underline;
+        }
+    }
+
+    // Cart Link
+    .cart-link {
+        font-size: 1.5rem;
+        color: $color-copper;
+
+        &:hover {
+            color: darken($color-copper, 10%);
+        }
+    }
+
+    // Vertical Divider
+    .vr {
+        background-color: $color-copper;
+        width: 1px;
+        height: 2rem;
+    }
+
+    // Mobile Sidebar Links
+    .sidebar-link {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover,
+        &.router-link-exact-active {
+            background-color: $color-copper;
+            color: $color-white;
+        }
+    }
+
+    // Shrinking Header on Scroll
+    &.scrolled {
+        padding: 0.4rem 0;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+        .logo-sm {
+            width: 80px;
+        }
+    }
+}

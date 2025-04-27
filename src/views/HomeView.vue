@@ -1,18 +1,19 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div class="container home py-5">
+    <div class="text-center bg-pink rounded p-4">
+      <h1 class="display-5 accent">Welcome to Jiji’s Pastry Café</h1>
+      <p class="lead">Lovingly handcrafted pastries & coffee.</p>
+      <router-link to="/order" class="btn btn-copper btn-lg"
+        >Order Now</router-link
+      >
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
-export default {
-  name: "HomeView",
-  components: {
-    HelloWorld,
-  },
-};
+export default { name: "HomeView" };
 </script>
+
+<style lang="scss" scoped>
+@import "@/assets/HomeView.scss";
+</style>
