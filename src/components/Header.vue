@@ -5,15 +5,15 @@
     >
       <!-- Hamburger menu (mobile only) -->
       <button
-        class="hamburger-btn d-md-none"
+        class="hamburger-btn d-lg-none"
         @click="toggleSidebar"
         aria-label="Toggle navigation"
       >
         <span class="hamburger-icon"></span>
       </button>
 
-      <!-- Centered logo (mobile) -->
-      <router-link to="/" class="mx-auto d-md-none logo-mobile">
+      <!-- Mobile Centered Logo -->
+      <router-link to="/" class="mx-auto d-lg-none logo-mobile">
         <img
           src="@/assets/images/jijilogo.png"
           alt="Jiji's Pastries Logo"
@@ -21,9 +21,9 @@
         />
       </router-link>
 
-      <!-- Desktop: Logo left, nav right -->
+      <!-- Desktop Layout: Logo left, nav right -->
       <div
-        class="d-none d-md-flex w-100 justify-content-between align-items-center"
+        class="d-none d-lg-flex w-100 justify-content-between align-items-center"
       >
         <router-link to="/" class="navbar-brand">
           <img
@@ -52,14 +52,13 @@
             >
           </li>
 
-          <div class="vr mx-3 d-none d-md-block"></div>
+          <div class="vr mx-3 d-none d-lg-block"></div>
 
           <li class="nav-item">
             <router-link to="/cart" class="nav-link cart-link">
               <i class="fas fa-shopping-cart"></i>
             </router-link>
           </li>
-
           <li class="nav-item">
             <router-link to="/contact" class="btn btn-contact ms-2">
               Contact Us
@@ -69,7 +68,7 @@
       </div>
     </div>
 
-    <!-- Sidebar Offcanvas -->
+    <!-- Sidebar Offcanvas (Mobile Menu) -->
     <div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar">
       <div class="offcanvas-header">
         <router-link to="/" class="offcanvas-brand" @click="closeSidebar">
@@ -136,10 +135,6 @@ export default {
     this.sidebar = Offcanvas.getOrCreateInstance(
       document.getElementById("sidebar")
     );
-    window.addEventListener("scroll", this.handleScroll);
-  },
-  beforeUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     toggleSidebar() {
@@ -147,14 +142,6 @@ export default {
     },
     closeSidebar() {
       this.sidebar.hide();
-    },
-    handleScroll() {
-      const header = document.querySelector(".app-header");
-      if (window.scrollY > 50) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
     },
   },
 };
