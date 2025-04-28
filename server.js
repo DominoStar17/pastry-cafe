@@ -32,6 +32,16 @@ app.post("/test", (req, res) => {
   res.status(200).send("Server Connected");
 });
 
+//to test request path
+/*
+app.use((req, res, next) => {
+    console.log(`Incomding request to: ${req.method} ${req.url}`);
+});*/
+
+/************************
+ * CUSTOMER ENDPOINTS
+ ********************** */
+
 //Create a new customer
 //as of 4/26 this is working. DO NOT CHANGE
 app.post("/customer", async (req, res) => {
@@ -71,7 +81,7 @@ app.post("/customer", async (req, res) => {
 app.get("/customer", async (req, res) => {
   //comparing name and email because these are required cusomter data
   const { name, email } = req.query;
-  console.log("query parametersL", req.query);
+  console.log("query parameters:", req.query);
 
   //compare against database
   try {
@@ -98,10 +108,104 @@ app.get("/customer", async (req, res) => {
   }
 });
 
+/***********************
+ * ORDER ENDPOINTS
+ ********************** */
+//Generate unique orderIds:
+const { v4: uuidv4 } = require("uuid");
+
+//Create a new order
+//as of 4/27 this is working. DO NOT CHANGE
 app.post("/order", async (req, res) => {
-  const newOrder = new Order(req.body);
-  const savedOrder = await newOrder.save();
-  res.json(savedOrder);
+  const { customerEmail, items, total, status } = req.body;
+  console.log(req.body);
+
+  try {
+    const newOrder = new Order({
+      orderId: uuidv4(), //generate new id
+      customerEmail, //link order to customer
+      items,
+      total,
+      status,
+    });
+
+    const savedOrder = await newOrder.save();
+    res.status(201).json({
+      message: `Order created successfully. Your order number is: ${savedOrder.orderId} `,
+      order: savedOrder,
+    });
+  } catch (err) {
+    res.status(500).json({
+      message: "An error occurred while creating the order",
+      error: err.message,
+    });
+  }
+});
+
+//Get 1 order by it's orderId
+//as of 4/27 this is working. DO NOT CHANGE
+app.get("/order", async (req, res) => {
+  //retrieve order data using order number
+  const { orderId } = req.query;
+  console.log(req.query);
+  console.log("received orderId", orderId);
+
+  //compare against database
+  try {
+    //search orders
+    const order = await Order.findOne({ orderId });
+
+    //order exists
+    if (order) {
+      return res.status(200).json({
+        message: "Order found",
+        order,
+      });
+    } else {
+      //order not found
+      return res.status(404).json({
+        message: "Order Not Found. Please try again",
+      });
+    }
+  } catch (err) {
+    return res.status(500).json({
+      message: "An error occurred while retrieving the order.",
+      error: err.message,
+    });
+  }
+});
+
+//Get all of the orders that belong to a customer
+app.get("/orders", async (req, res) => {
+  //retrieve orders linked to customerEmail
+  const { customerEmail } = req.query;
+  console.log(req.query);
+
+  //validate customer email
+  if (!customerEmail) {
+    return res.status(400).json({
+      message: "Customer email required to retrieve orders.",
+    });
+  }
+
+  try {
+    const orders = await Order.find({ customerEmail });
+
+    if (orders.length > 0) {
+      return res.status(200).json({
+        message: "You have these orders: ",
+        orders,
+      });
+    } else {
+      return res.status(404).json({
+        message: "This customer has no orders: ",
+      });
+    }
+  } catch (err) {
+    return res.status(500).json({
+      message: "We encounted an issue. Please try again.",
+    });
+  }
 });
 
 app.listen(port, () => {
