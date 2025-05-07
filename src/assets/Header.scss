@@ -1,90 +1,115 @@
 @import "@/assets/styles.scss";
 
 .app-header {
-  background: rgba($color-white, 0.95);
-  padding-top: $gutter;
+  padding: 0.75rem 0;
 
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  .logo-sm {
+    width: 100px;
+    transition: all 0.3s ease;
+  }
 
-  .header-bar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: $gutter 0;
+  .logo-lg {
+    width: 140px;
+  }
 
-    @media (min-width: 768px) {
-      justify-content: space-between;
-      padding: $gutter 0;
-    }
+  .hamburger-btn {
+    border: none;
+    background: none;
+    padding: 0.5rem;
+  }
 
-    .hamburger {
+  .hamburger-icon {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: black;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: black;
       position: absolute;
-      left: $gutter;
-      font-size: 1.5rem;
-
-      @media (min-width: 768px) {
-        display: none;
-      }
+      left: 0;
     }
 
-    .logo {
-      width: 120px;
-
-      @media (min-width: 768px) {
-        width: 180px;
-      }
+    &::before {
+      top: -8px;
     }
 
-    .header-nav {
-      display: none;
-
-      @media (min-width: 768px) {
-        display: flex;
-        align-items: center;
-        gap: $gutter * 2;
-      }
-
-      .nav-link {
-        color: #333;
-        font-weight: 600;
-
-        &:hover,
-        &.router-link-active {
-          color: $color-copper;
-        }
-      }
-
-      .vr {
-        background-color: $color-copper;
-        width: 1px;
-        height: 1.5rem;
-      }
-
-      .btn-contact {
-        background: $color-copper;
-        color: $color-white;
-        padding: 0.5rem 1rem;
-        border-radius: 999px;
-        font-weight: 600;
-
-        &:hover {
-          background: darken($color-copper, 5%);
-        }
-      }
+    &::after {
+      top: 8px;
     }
   }
 
-  .offcanvas-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: $gutter;
+  .btn-contact {
+    background: $color-copper;
+    color: $color-white;
+    border-radius: 999px;
+    padding: 0.4rem 1rem;
+    font-weight: 600;
+    font-size: 1rem;
 
-    .offcanvas-logo {
-      max-width: 120px;
-      height: auto;
+    &:hover {
+      background: darken($color-copper, 5%);
+    }
+  }
+
+  .link-style {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover,
+    &.router-link-exact-active {
+      color: $color-copper;
+      text-decoration: underline;
+    }
+  }
+
+  .cart-link {
+    font-size: 1.5rem;
+    color: $color-copper;
+
+    &:hover {
+      color: darken($color-copper, 10%);
+    }
+  }
+
+  .vr {
+    background-color: $color-copper;
+    width: 1px;
+    height: 2rem;
+  }
+
+  .sidebar-link {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover,
+    &.router-link-exact-active {
+      background-color: $color-copper;
+      color: $color-white;
+    }
+  }
+
+  &.scrolled {
+    padding: 0.4rem 0;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    .logo-sm {
+      width: 80px;
     }
   }
 
