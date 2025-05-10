@@ -1,13 +1,46 @@
-@import "@/assets/styles.scss";
+.about-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #fff7f9;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #444;
+  }
+  
+  .about-title {
+    font-size: 2.2rem;
+    color: #d63384;
+    margin-bottom: 20px;
+    text-align: center;
+    
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    color: #c2185b;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .about-paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .about-section {
+    margin-top: 40px;
+    text-align: center;
+  }
 
-.about {
-    h2 {
-        font-family: $font-heading;
-        margin-top: 2rem;
-        margin-bottom: $gutter / 2;
-    }
-
-    .timeline strong {
-        color: $color-copper;
-    }
-}
+  img {
+    max-width: 150px;
+    width: 100%;
+    border-radius: 12px;
+    margin: 20px auto;
+    display: block;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
