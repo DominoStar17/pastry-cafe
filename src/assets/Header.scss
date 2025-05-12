@@ -1,6 +1,22 @@
 @import "@/assets/styles.scss";
 
 .app-header {
+    padding: 0.75rem 0;
+
+    .logo-sm {
+        width: 150px;
+        transition: all 0.3s ease;
+    }
+
+    .logo-lg {
+        width: 140px;
+    }
+
+    .hamburger-btn {
+        border: none;
+        background: none;
+        padding: 0.5rem;
+      
   padding: 0.75rem 0;
 
   .logo-sm {

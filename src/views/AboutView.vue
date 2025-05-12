@@ -1,57 +1,57 @@
 <template>
-  <div class="container about py-5">
-    <h1 class="text-center mb-3">About Jiji’s Café</h1>
-    <p class="text-center mb-4">Where every pastry is baked with love.</p>
+  <div class="about-container">
+    <h1 class="about-title">The Sweet Journey Behind Jiji Treats</h1>
 
-    <h2>Meet the Team</h2>
-    <div class="row row-cols-2 row-cols-md-3 g-4 mb-5">
-      <div v-for="p in people" :key="p.name" class="col text-center">
-        <img :src="p.photo" class="rounded-circle mb-2" width="80" alt="" />
-        <h5>{{ p.name }}</h5>
-        <p class="text-muted">{{ p.role }}</p>
-      </div>
+    <img src="@/assets/images/H.jpeg" />
+
+    <p class="about-paragraph">
+      Jiji Treats Bakery and Cakes was born from the heart of a woman with an
+      extraordinary passion for cooking and an even greater love for sharing joy
+      through food. Jiji, the founder and creative mind behind the brand, is a
+      self-taught baker whose dedication, talent, and curiosity have shaped her
+      into an exceptional cake artist. From an early age, Jiji found comfort and
+      inspiration in the kitchen. What started as a personal hobby soon
+      transformed into a deeper calling—one that she chose to pursue with
+      determination and heart.
+    </p>
+    <p class="about-paragraph">
+      Jiji holds a degree in Food Science, a background that sets her apart in
+      the world of baking. Her scientific understanding of ingredients,
+      nutrition, and food safety allows her to create desserts that are not only
+      delicious but also thoughtfully balanced. At Jiji Treats, she blends the
+      art of baking with the science of nourishment, crafting sweets that bring
+      both flavor and mindful indulgence to every customer.
+    </p>
+    <p class="about-paragraph">
+      Jiji Treats is more than just a bakery—it's a dream made real. It’s Jiji’s
+      way of sharing her gift with the world, one sweet bite at a time. With
+      every product, she pours in her story, her skills, and her sincere desire
+      to make people feel celebrated. From everyday delights to
+      once-in-a-lifetime cakes, Jiji Treats is here to make life a little
+      sweeter.
+    </p>
+    <p class="about-paragraph">
+      We invite you to be part of this journey, to taste the love and care in
+      every bite, and to discover what makes Jiji Treats truly one of a kind.
+    </p>
+
+    <div class="about-section">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="about-paragraph">
+        To create delicious, high-quality baked goods that bring happiness,
+        celebration, and a personal touch to every customer’s life.
+      </p>
+
+      <h2 class="section-title">Our Vision</h2>
+      <p class="about-paragraph">
+        To become a beloved local bakery known for combining creativity,
+        nutrition, and heart in every treat we make.
+      </p>
     </div>
-
-    <h2>Our Story</h2>
-    <ul class="timeline list-unstyled">
-      <li v-for="(evt, i) in timeline" :key="i" class="mb-2">
-        <strong>{{ evt.year }}</strong> — {{ evt.text }}
-      </li>
-    </ul>
   </div>
 </template>
 
-<script>
-export default {
-  name: "AboutView",
-  data() {
-    return {
-      people: [
-        {
-          name: "Thing 1",
-          role: "Founder",
-          photo: "https://i.pravatar.cc/100?img=5",
-        },
-        {
-          name: "Thing 2",
-          role: "Head Baker",
-          photo: "https://i.pravatar.cc/100?img=2",
-        },
-        {
-          name: "Thing 3",
-          role: "Chef Patissier",
-          photo: "https://i.pravatar.cc/100?img=7",
-        },
-      ],
-      timeline: [
-        { year: "2005", text: "Jiji’s started in a small home kitchen." },
-        { year: "2012", text: "We opened our first café on Main St." },
-        { year: "2020", text: "Expanded to three new locations." },
-      ],
-    };
-  },
-};
-</script>
+<script></script>
 
 <style lang="scss" scoped>
 @import "@/assets/AboutView.scss";
