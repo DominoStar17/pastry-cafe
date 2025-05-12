@@ -16,122 +16,135 @@
         border: none;
         background: none;
         padding: 0.5rem;
-      
-  padding: 0.75rem 0;
-
-  .logo-sm {
-    width: 100px;
-    transition: all 0.3s ease;
-  }
-
-  .logo-lg {
-    width: 140px;
-  }
-
-  .hamburger-btn {
-    border: none;
-    background: none;
-    padding: 0.5rem;
-  }
-
-  .hamburger-icon {
-    display: block;
-    width: 24px;
-    height: 2px;
-    background-color: black;
-    position: relative;
-
-    &::before,
-    &::after {
-      content: "";
-      display: block;
-      width: 24px;
-      height: 2px;
-      background-color: black;
-      position: absolute;
-      left: 0;
     }
 
-    &::before {
-      top: -8px;
+    .hamburger-icon {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background-color: black;
+        position: relative;
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: black;
+            position: absolute;
+            left: 0;
+        }
+
+        &::before {
+            top: -8px;
+        }
+
+        &::after {
+            top: 8px;
+        }
     }
 
-    &::after {
-      top: 8px;
+    // ---------- Desktop Nav Styles ----------
+    .navbar-brand {
+        margin-right: 2rem;
     }
-  }
 
-  .btn-contact {
-    background: $color-copper;
-    color: $color-white;
-    border-radius: 999px;
-    padding: 0.4rem 1rem;
-    font-weight: 600;
-    font-size: 1rem;
-
-    &:hover {
-      background: darken($color-copper, 5%);
+    .nav {
+        gap: 1.5rem;
     }
-  }
 
-  .link-style {
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
+    .link-style {
+        font-weight: 600;
+        font-size: 1.05rem;
+        color: #444;
+        text-decoration: none;
+        position: relative;
+        padding: 0.25rem 0;
 
-    &:hover,
-    &.router-link-exact-active {
-      color: $color-copper;
-      text-decoration: underline;
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: $color-copper;
+            transition: width 0.3s ease;
+        }
+
+        &:hover::after,
+        &.router-link-exact-active::after {
+            width: 100%;
+        }
+
+        &:hover {
+            color: $color-copper;
+        }
     }
-  }
 
-  .cart-link {
-    font-size: 1.5rem;
-    color: $color-copper;
+    .cart-link {
+        font-size: 1.5rem;
+        color: $color-copper;
+        padding: 0.25rem;
 
-    &:hover {
-      color: darken($color-copper, 10%);
+        &:hover {
+            color: darken($color-copper, 10%);
+            background-color: rgba($color-copper, 0.1);
+            border-radius: 50%;
+        }
     }
-  }
 
-  .vr {
-    background-color: $color-copper;
-    width: 1px;
-    height: 2rem;
-  }
+    .btn-contact {
+        background: $color-copper;
+        color: $color-white;
+        border-radius: 999px;
+        padding: 0.4rem 1rem;
+        font-weight: 600;
+        font-size: 1rem;
 
-  .sidebar-link {
-    font-size: 1.3rem;
-    font-weight: 600;
-    color: #333;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    &:hover,
-    &.router-link-exact-active {
-      background-color: $color-copper;
-      color: $color-white;
+        &:hover {
+            background: darken($color-copper, 5%);
+        }
     }
-  }
 
-  &.scrolled {
-    padding: 0.4rem 0;
-    background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-
-    .logo-sm {
-      width: 80px;
+    .vr {
+        background-color: $color-copper;
+        width: 1px;
+        height: 2rem;
     }
-  }
 
-  .sidebar-divider {
-    border: none;
-    border-top: 1px solid $color-copper;
-    margin: $gutter 0;
-  }
+    // ---------- Mobile Sidebar Styles ----------
+    .sidebar-link {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #333;
+        text-decoration: none;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+
+        &:hover,
+        &.router-link-exact-active {
+            background-color: $color-copper;
+            color: $color-white;
+        }
+    }
+
+    .sidebar-divider {
+        border: none;
+        border-top: 1px solid $color-copper;
+        margin: $gutter 0;
+    }
+
+    // ---------- Shrinking Header Scroll State ----------
+    &.scrolled {
+        padding: 0.4rem 0;
+        background: white;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+        .logo-sm {
+            width: 80px;
+        }
+    }
 }
